@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact app</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="main-navbar">
+            <p class="contact-app">
+                <b>Contact</b>App
+            </p>
+        </nav>
+        <!--  START-Button trigger modal -->
+        <button type="button" id="mymodal" class="btn btn-primary btn-lg add-new-user" data-toggle="modal" data-target="#myModal">
+            +
+        </button>
+        <!-- Modal add user Start-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                  <div class="modal-body">
+                        <span>
+                            <b>New User</b>
+                        </span>
+                        <input type="text" name="" value="" placeholder="insert new user" class="first-input">
+                        <p class="check-input-name"></p>
+
+                        <span>
+                            <b>Phone</b>
+                        </span>
+                        <input type="text" name="" value="" placeholder="insert phone number" class="second-input">
+                        <p class="check-input-phone"></p>
+
+                        <span>
+                            <b>Email</b>
+                        </span>
+                        <input type="text" name="" value="" placeholder="insert email" class="third-input">
+                        <p class="check-input-email"></p>
+                  </div>
+                  <div class="modal-footer">
+                        <button type="button" class="button-close" data-dismiss="modal"><b>Close</b>
+                        </button>
+                        <button type="button" class="button-save"><b>Save</b>
+                        </button>
+                  </div>
+            </div>
+          </div>
+          <!--Modal add user End  -->
+
+          <!-- Modal delete user Start  -->
+          <div class="modal fade modal-delete-user fade" id="myModal-delete-user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog delete" role="document">
+                    <div class="modal-body">
+                         <p class="delete-user">Are you sure you want to delete this user?</p>
+
+                    </div>
+                    <div class="modal-footer">
+                          <button type="button" class="button-delete-no" data-dismiss="modal"><b>No</b>
+                          </button>
+                          <button type="button" class="button-delete-yes" data-dismiss="modal"><b>Yes</b>
+                          </button>
+                    </div>
+              </div>
+            </div>
+
+          <!--Modal delete user End  -->
+            <div class="container">
+                <table class="table-responsive">
+                    <thead>
+                         <tr class="general-info">
+                           <th>
+                               <span class="name" data-id="somqwepqwe">
+                                   List of users
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                           </th>
+                           <th >
+                               <span class="phone-number">
+                                   Phone number
+                                   <i class="fa fa-phone" aria-hidden="true">
+                                   </i>
+                               </span>
+                           </th>
+                           <th>
+                               <span class="email">
+                                   Email
+                               <i class="fa fa-envelope" aria-hidden="true">
+                               </i>
+                           </span>
+                           </th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                     </tbody>
+                </table>
+            </div>
+    </div>
+
+    <!-- LIBS -->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/js/dropdown.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBzyYVzK1SxWPiPtSHecwD7xGLBIbxhm5s",
+        authDomain: "contactos-afbe1.firebaseapp.com",
+        databaseURL: "https://contactos-afbe1.firebaseio.com",
+        storageBucket: "contactos-afbe1.appspot.com",
+        messagingSenderId: "442842305919"
+      };
+      firebase.initializeApp(config);
+    </script>
+</body>
+</html>
