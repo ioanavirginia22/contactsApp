@@ -2,6 +2,7 @@
 .container-fluid {
     background-color: #F0F4F7;
     padding: 0;
+    height: 100vh;
 }
 
 .main-navbar {
@@ -199,5 +200,17 @@
     background-color: #fff;
 }
 
+.get-day {
+    text-align: center;
+    width: 252px;
+    margin: 0 auto;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-left: -126px;
+    padding: 10px;
+    border : 2px solid #F0DA87;
+}
 
 /* END STYLE FOR CONTACTS APP*/

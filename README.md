@@ -1,7 +1,13 @@
 Simple contact app.
 
-Run npm install from root folder
-Run bower install from public folder
+For this app to run you need node installed with npm and bower
 
-run: node server
-check the app here: http://localhost:8888/
+Run npm install from root folder.
+Run bower install from public folder.
+
+Run node server from root folder.
+
+Check the app here: http://localhost:8888/
+
+notes:
+-the realtime database is available through firebase.google.com

@@ -1,12 +1,20 @@
+$(document).ready(function() {
+
 //START
     //  method-get START
     //  get contacts function
     function getContacts() {
       $.ajax({
-        url: 'https://contactos-afbe1.firebaseio.com/.json',
+        url: 'https://contactos-afbe1.firebaseio.com/.jsonjkk',
         type: "GET",
         success: function (response) {
           console.log(response);
+          if (response === null) {
+            console.log("entering");
+            var emptyContact = "<p style='text-align: center;'>No user yet</p>";
+            $(".table-responsive tbody").append(emptyContact);
+            return;
+          }
            $.each(response.users, function (index, user) {
                 console.log(index);
                 console.log(user);
@@ -19,6 +27,7 @@
                 "<i class='fa fa-trash' aria-hidden='true'></i></button>"+
                 "</td></tr>" );
              });
+
         },
         error: function(error) {
           alert("error: " + error);
@@ -64,7 +73,7 @@
             $.ajax ({
                url: 'https://contactos-afbe1.firebaseio.com/users.json',
                type: 'POST',
-               data: JSON.stringify(newUser) ,
+               data: JSON.stringify(newUser),
                 success: function () {
                     $(".modal").modal('hide');
                     $("tbody").html("");
@@ -81,7 +90,7 @@
 
         $(document).on('click','.remove-user', function() {
 
-                var trTable = $(this).parentsUntil("tbody");
+                var trTable = $(this).parent().parent();
                 var userId = $(this).parents("tr").attr("data-id");
 
                 $(document).on('click','.button-delete-yes', function() {
@@ -91,12 +100,50 @@
                       $.ajax ({
                           url: myUrl,
                           type: 'DELETE',
-                          success: function () {
-                              console.log("successufull delete user");
+                          success: function (response) {
+                              console.log(response);
                             }
                       });
                 });
         });
 
+var d = new Date();
+var month = d.getMonth();
+month = month + 1;
+
+if(month < 10) {
+  month = "0" + month;
+}
+var newDay = d.getDate() + "." +  month + "." + d.getFullYear();
+console.log(newDay);
+
+var dayElement = document.querySelector(".get-day b");
+var today = d.getDay();
+switch (today) {
+    case 0:
+      dayElement.innerHTML += "Sunday";
+      break;
+    case 1:
+      dayElement.innerHTML += "Monday";
+      break;
+    case 2:
+      dayElement.innerHTML += "Tuesday";
+      break;
+    case 3:
+      dayElement.innerHTML += "Wednesday" ;
+      break;
+    case 4:
+      dayElement.innerHTML += "Thursday";
+      break;
+    case 5:
+      dayElement.innerHTML += "Friday";
+      break;
+    case 6:
+      dayElement.innerHTML += "Saturday";
+      break;
+}
+
+dayElement.innerHTML +=  " " + newDay;
 
 //END
+});
