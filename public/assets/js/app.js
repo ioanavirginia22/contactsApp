@@ -5,7 +5,7 @@ $(document).ready(function() {
     //  get contacts function
     function getContacts() {
       $.ajax({
-        url: 'https://contactos-afbe1.firebaseio.com/.jsonjkk',
+        url: 'https://contactos-afbe1.firebaseio.com/.json',
         type: "GET",
         success: function (response) {
           console.log(response);
